@@ -16,11 +16,13 @@ public class HelloController {
         return "hello";
     }
 
+    // 템플릿 엔진
     @GetMapping("hello-mvc")
     public String helloMvc(@RequestParam(value = "name", required = false) String name, Model model) {
         model.addAttribute("name", name);
         return "hello-template";
     }
+
 
     @GetMapping("hello-string")
     @ResponseBody
@@ -28,7 +30,7 @@ public class HelloController {
         return "hello " + name;
     }
 
-    //json이 기본
+    // API방식(json)
     @GetMapping("hello-api")
     @ResponseBody
     public Hello helloApi(@RequestParam("name") String name) {
